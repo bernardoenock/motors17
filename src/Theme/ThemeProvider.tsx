@@ -23,7 +23,7 @@ const StyledThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem("@MotorShop:Theme.mode", newMode);
   };
 
-  const colors: DefaultTheme = mode === "light" ? darkTheme : lightTheme;
+  const colors: DefaultTheme = mode === "light" ? lightTheme : darkTheme;
 
   return (
     <ThemeProvider theme={colors}>

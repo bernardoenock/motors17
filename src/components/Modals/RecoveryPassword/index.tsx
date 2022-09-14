@@ -1,11 +1,18 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+
 import GeneralInput from "../../Forms/Components/Inputs/GeneralInput";
 import { ButtonPrimary } from "../../Button";
-import { Form } from "./styles";
+import { Form, TopModal } from "./styles";
 
-const RecoveryPassword = () => {
+import { CloseModalBtn } from "../../Button/CloseModalBtn";
+
+interface IHandleModal {
+  handleModal: () => void;
+}
+
+const RecoveryPassword = ({ handleModal }: IHandleModal) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -27,7 +34,12 @@ const RecoveryPassword = () => {
 
   return (
     <Form onSubmit={handleSubmit(handleRequest)}>
-      <h1>Recuperação de senha:</h1>
+      <TopModal>
+        <h1>Recuperação de senha:</h1>
+
+        <CloseModalBtn onClick={handleModal} />
+      </TopModal>
+
       <GeneralInput
         label="Digite seu e-mail"
         register={register}

@@ -1,26 +1,55 @@
+import { ButtonPrimaryOutline } from "../Button";
+
 import {
   UserInfoBoxContainer,
   NameContainerWithTag,
-  TopImageContainer,
+  Avatar,
+  TopDiv,
+  ButtonsContainer,
 } from "./styles";
 
-const UserInfoBox: React.FC<{ IMG_PROFILE: string }> = ({
-  IMG_PROFILE,
+interface IProps {
+  userName: string;
+  description: string;
+  typeUser: boolean;
+  openProfileModal: () => void;
+  openAnounceModal: () => void;
+}
+
+const UserInfoBox: React.FC<IProps> = ({
+  userName,
+  description,
+  typeUser,
+  openAnounceModal,
+  openProfileModal,
 }): JSX.Element => {
+  const avatarLetters = (name: string = "Usuário") => {
+    if (name.split(" ").length > 1) {
+      return name[0] + name[name.split("").indexOf(" ") + 1];
+    }
+    return name[0];
+  };
+
   return (
     <UserInfoBoxContainer>
-      <TopImageContainer>
-        <img src={IMG_PROFILE} alt="Imagem de perfil" />
-      </TopImageContainer>
-      <NameContainerWithTag>
-        <h2>Samuel Leão</h2>
-        <span>Anunciante</span>
-      </NameContainerWithTag>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s
-      </p>
+      <TopDiv>
+        <Avatar>{avatarLetters(userName).toUpperCase()}</Avatar>
+        <NameContainerWithTag>
+          <h2>{userName}</h2>
+          <span>{typeUser ? "Anunciante" : "Comprador"}</span>
+        </NameContainerWithTag>
+      </TopDiv>
+      <p>{description}</p>
+      <ButtonsContainer>
+        <ButtonPrimaryOutline onClick={openProfileModal}>
+          Editar perfil
+        </ButtonPrimaryOutline>
+        {typeUser && (
+          <ButtonPrimaryOutline onClick={openAnounceModal}>
+            Criar anúncio
+          </ButtonPrimaryOutline>
+        )}
+      </ButtonsContainer>
     </UserInfoBoxContainer>
   );
 };

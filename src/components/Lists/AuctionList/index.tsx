@@ -1,5 +1,3 @@
-import IMG_PROFILE from "../../../assets/img/default_profile.png";
-
 import Stopwatch from "../../Stopwatch";
 
 import Avatar from "../../Avatar";
@@ -18,42 +16,52 @@ import {
   ContainerTitle,
   YearKM,
 } from "./styles";
+import { useListAnnounces } from "../../../Providers/Auction/listAll";
+import { useCallback, useEffect, useState } from "react";
+import { IAuctionRes } from "../../../interfaces/auction";
 
 const AuctionList: React.FC = () => {
+  const [announces, setAnnounces] = useState<IAuctionRes[]>([]);
+  const { getListAuction } = useListAnnounces();
+
+  const handleAnnounces = useCallback(async () => {
+    const announce = await getListAuction();
+    setAnnounces(announce!);
+  }, [getListAuction]);
+
+  useEffect(() => {
+    handleAnnounces();
+  }, [handleAnnounces]);
+  console.log(announces);
   return (
     <Container>
       <h2>Leilão</h2>
       <ContainerCardAuction>
-        {Array.from({ length: 10 }).map((_, index) => (
+        {announces.map((item, index) => (
           <CardAuction key={index}>
-            <ContainerAuction>
+            <ContainerAuction image={item.imagesUrl!}>
               <ContainerInfo>
                 <ContainerTitle>
                   <Stopwatch />
-                  <h3>
-                    Mercedes Benz A 200 CGI ADVANCE SEDAN Mercedes Benz A 200
-                  </h3>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem...
-                  </p>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </ContainerTitle>
                 <ContainerAvatar>
-                  <Avatar userName="Rodrigo Tavares" />
+                  <Avatar userName={item.seller!.name} />
                 </ContainerAvatar>
 
                 <ContainerBottom>
                   <YearKM>
                     <ContainerBottomInfo>
-                      <p>2013</p>
+                      <p>{item.year}</p>
                     </ContainerBottomInfo>
                     <ContainerBottomInfo>
-                      <p>0 KM</p>
+                      <p>{item.km}KM</p>
                     </ContainerBottomInfo>
                   </YearKM>
 
                   <ContainerPrice>
-                    <p>R$ 00.000,00</p>
+                    <p>R$ {parseFloat(item.price || "0").toFixed(2)}</p>
                   </ContainerPrice>
                 </ContainerBottom>
               </ContainerInfo>

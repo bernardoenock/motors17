@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import {
   ContainerBanner,
   ContainerButtons,
@@ -8,6 +10,11 @@ import {
 import { ButtonOutlineLight } from "../../Button";
 
 const BannerHome: React.FC = () => {
+  const history = useHistory();
+  const handlePage = (path: string) => {
+    history.push(path);
+  };
+
   return (
     <ContainerMain id="main">
       <ContainerBanner>
@@ -16,9 +23,24 @@ const BannerHome: React.FC = () => {
           <p>Um ambiente feito para você explorar o seu melhor</p>
         </ContainerTitle>
         <ContainerButtons>
-          <ButtonOutlineLight>Leilão</ButtonOutlineLight>
-          <ButtonOutlineLight>Carros</ButtonOutlineLight>
-          <ButtonOutlineLight>Motos</ButtonOutlineLight>
+          <ButtonOutlineLight
+            type="button"
+            onClick={() => handlePage("/preview")}
+          >
+            Leilão
+          </ButtonOutlineLight>
+          <ButtonOutlineLight
+            type="button"
+            onClick={() => handlePage("/preview")}
+          >
+            Carros
+          </ButtonOutlineLight>
+          <ButtonOutlineLight
+            type="button"
+            onClick={() => handlePage("/preview")}
+          >
+            Motos
+          </ButtonOutlineLight>
         </ContainerButtons>
       </ContainerBanner>
     </ContainerMain>

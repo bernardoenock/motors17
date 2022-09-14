@@ -11,8 +11,21 @@ export const Form = styled.form`
   background-color: ${(props) =>
     props.theme.backgroundColors.secondaryBackground};
   border-radius: 0.5rem;
+`;
 
+export const TopModal = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1rem;
   > h1 {
     color: ${({ theme }) => theme.textColors.subTitle};
+    margin-top: 1rem;
+  }
+
+  @media screen and (max-width: 920px) {
+    margin-top: -1.5rem;
+    > h1 {
+      margin-top: 2rem;
+    }
   }
 `;

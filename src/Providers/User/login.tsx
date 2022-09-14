@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-// import { APILocal } from "../../services/urls.api";
 import { motorShopAPI } from "../../services/urls.api";
+import { useLoad } from "../Loading";
 
 interface ILogin {
   email?: string;
@@ -23,6 +23,8 @@ export const LoginContext = createContext({} as IContext);
 export const LoginProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const { hiddenLoad } = useLoad();
+
   const history = useHistory();
 
   const [token, setToken] = useState(
@@ -52,6 +54,7 @@ export const LoginProvider: React.FC<{ children: React.ReactNode }> = ({
       .catch((err) => {
         toast.warning("E-amil ou senha incorreto");
       });
+    hiddenLoad();
   };
 
   const getUser = async (token: string) => {

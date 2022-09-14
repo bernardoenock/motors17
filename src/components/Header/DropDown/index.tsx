@@ -36,9 +36,9 @@ const DropDownMenu: React.FC<{ user: IUser }> = ({ user }) => {
           <BurguerIcon open={drop} />
         </DropTrigger>
         <DropContent>
-          <DropItem>Carros</DropItem>
-          <DropItem>Motos</DropItem>
-          <DropItem>Leilão</DropItem>
+          <DropItem onClick={() => handlePage("/preview")}>Carros</DropItem>
+          <DropItem onClick={() => handlePage("/preview")}>Motos</DropItem>
+          <DropItem onClick={() => handlePage("/preview")}>Leilão</DropItem>
           <DropSeparator />
           {!user.id ? (
             <>

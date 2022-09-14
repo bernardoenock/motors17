@@ -1,4 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { useHistory } from "react-router-dom";
 import { useUser } from "../../../../Providers/User/login";
 import Avatar from "../../../Avatar";
 import { DropItem } from "../styles";
@@ -10,6 +11,7 @@ interface Iprops {
 
 const SubMenuUser: React.FC<Iprops> = ({ userName }) => {
   const { logOut } = useUser();
+  const history = useHistory();
 
   return (
     <DropdownMenu.Root>
@@ -18,8 +20,10 @@ const SubMenuUser: React.FC<Iprops> = ({ userName }) => {
       </LoggedTrigger>
 
       <SubMenuContainer>
-        <DropItem>Editar Perfil</DropItem>
-        <DropItem>Editar endereço</DropItem>
+        <DropItem onSelect={() => history.push("/profile")}>
+          Meu Perfil
+        </DropItem>
+        <DropItem>Gerenciar Endereços</DropItem>
         <DropItem>Minhas Compras</DropItem>
         <DropItem onSelect={logOut}>Sair</DropItem>
         <DropdownMenu.Arrow />

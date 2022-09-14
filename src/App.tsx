@@ -2,8 +2,12 @@ import Router from "./Router";
 import { Body, GlobalStyle } from "./styles/GlobalStyles";
 import Theme from "./Theme/ThemeProvider";
 import { ToastContainer } from "react-toastify";
+import Loader from "./components/Loader";
+import { useLoad } from "./Providers/Loading";
 
 function App() {
+  const { isLoad } = useLoad();
+
   return (
     <>
       <Theme>
@@ -20,6 +24,7 @@ function App() {
             pauseOnHover
           />
           <GlobalStyle />
+          <Loader isLoad={isLoad} />
           <Router />
         </Body>
       </Theme>

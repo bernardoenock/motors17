@@ -55,3 +55,20 @@ export const SelectTypeVehicle: React.FC<IProps> = ({ value, setValue }) => {
     </ToggleRoot>
   );
 };
+
+export const SelectTypePublished: React.FC<IProps> = ({ value, setValue }) => {
+  return (
+    <ToggleRoot
+      type="single"
+      defaultValue={"no"}
+      onValueChange={(value: string) => {
+        if (value) {
+          setValue(value);
+        }
+      }}
+    >
+      <ToggleItem value="yes">Sim</ToggleItem>
+      <ToggleItem value="no">Não</ToggleItem>
+    </ToggleRoot>
+  );
+};

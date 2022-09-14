@@ -10,10 +10,12 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.textColors.subTitle};
 
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
     font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    line-height: 17px;
     margin-bottom: 6px;
-    font-weight: 600;
   }
 
   > input {

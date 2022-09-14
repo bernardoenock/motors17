@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const UserInfoBoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   width: 90%;
   border-radius: 4px;
-  padding: 6px 20px 30px 20px;
+  padding: 40px 29px 40px 29px;
   background-color: ${({ theme }) => theme.greyScale.grey10};
-  margin-top: 150px;
+  /* margin-top: 150px; */
   p {
     font-weight: 400;
     font-size: 16px;
@@ -16,13 +20,24 @@ export const UserInfoBoxContainer = styled.div`
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
   }
-
-  @media only screen and (min-width: 375px) {
-    padding: 40px 29px 40px 29px;
+  @media screen and (max-width: 425px) {
+    align-items: center;
   }
+
   @media only screen and (min-width: 768px) {
     width: 80%;
   }
+`;
+export const Avatar = styled.div`
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.brand.brand2};
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.greyScale.whiteFixed};
+  font-size: 2rem;
 `;
 
 export const TopImageContainer = styled.div`
@@ -36,6 +51,17 @@ export const TopImageContainer = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+  }
+`;
+
+export const TopDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @media screen and (max-width: 425px) {
+    align-items: center;
   }
 `;
 
@@ -71,6 +97,28 @@ export const NameContainerWithTag = styled.div`
       font-size: 13px;
       width: 90px;
       height: 30px;
+    }
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+
+  > div {
+    padding: 0.5rem;
+    height: 100%;
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    > div {
+      padding: 0;
     }
   }
 `;

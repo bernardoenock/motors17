@@ -1,6 +1,6 @@
 import { useState } from "react";
 import GeneralInput from "../Forms/Components/Inputs/GeneralInput";
-import Modal from "../Modal";
+import Modal from "../Modals";
 import {
   ButtonActivate,
   ContainerForm,
@@ -13,6 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { ButtonOutline1 } from "../Button";
 import { useActivate } from "../../Providers/User/activateUser";
+import { useLoad } from "../../Providers/Loading";
 
 const ActivateUserSpan: React.FC = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -34,9 +35,11 @@ const ActivateUserSpan: React.FC = () => {
   });
 
   const { activateUser, recoveryNewCode } = useActivate();
+  const { showLoad } = useLoad();
 
   const handleCode = async (data: { code?: string }) => {
     console.log(data);
+    showLoad();
     const result = await activateUser(data.code!);
     if (result) {
       handle();
@@ -44,6 +47,7 @@ const ActivateUserSpan: React.FC = () => {
   };
 
   const recovery = async () => {
+    showLoad();
     await recoveryNewCode();
   };
 

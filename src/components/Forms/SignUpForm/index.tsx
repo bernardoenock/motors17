@@ -10,9 +10,9 @@ import { SelectTypeAccount } from "../Components/SelectType";
 import { useState } from "react";
 import MaskInput from "../Components/Inputs/MaskInput";
 import { useRegister } from "../../../Providers/User/register";
-// import { useZipCode } from "../../../Providers/User/cepValidation";
 import { useHistory } from "react-router-dom";
 import { IUserRegister } from "../../../interfaces/user";
+import { useLoad } from "../../../Providers/Loading";
 
 const FormSingUp: React.FC = () => {
   const schema = yup.object().shape({
@@ -73,9 +73,11 @@ const FormSingUp: React.FC = () => {
   const { registerUser } = useRegister();
   // const { address, verifyZipCode } = useZipCode();
   const history = useHistory();
+  const { showLoad } = useLoad();
 
   const handleRegister = async (data: IUserRegister) => {
     delete data.confirmPassword;
+    showLoad();
     await registerUser({ ...data, typeAccount: typeAccount });
   };
 

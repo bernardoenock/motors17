@@ -1,5 +1,4 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 export const Page = styled.div`
   display: flex;
@@ -13,4 +12,9 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+`;
+
+export const Centralize = styled.div`
+  display: flex;
+  justify-content: center;
 `;

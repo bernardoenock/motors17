@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import {
   ContainerBanner,
   ContainerButtons,
@@ -8,6 +10,11 @@ import {
 import { ButtonOutlineLight } from "../../Button";
 
 const BannerDash: React.FC = () => {
+  const history = useHistory();
+  const handlePage = (path: string) => {
+    history.push(path);
+  };
+
   return (
     <ContainerMain id="main">
       <ContainerBanner>
@@ -16,9 +23,19 @@ const BannerDash: React.FC = () => {
           <p>Velocidade e experiência em um lugar feito para você!</p>
         </ContainerTitle>
         <ContainerButtons>
-          <ButtonOutlineLight>Login</ButtonOutlineLight>
+          <ButtonOutlineLight
+            type="button"
+            onClick={() => handlePage("/login")}
+          >
+            Login
+          </ButtonOutlineLight>
 
-          <ButtonOutlineLight>Cadastrar</ButtonOutlineLight>
+          <ButtonOutlineLight
+            type="button"
+            onClick={() => handlePage("/register")}
+          >
+            Cadastrar
+          </ButtonOutlineLight>
         </ContainerButtons>
       </ContainerBanner>
     </ContainerMain>

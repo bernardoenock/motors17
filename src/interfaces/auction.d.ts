@@ -23,7 +23,7 @@ export interface IAuctionRes {
   id?: string;
   title?: string;
   description?: string;
-  price?: number;
+  price?: string;
   km?: string;
   year?: string;
   type?: type;
@@ -31,8 +31,21 @@ export interface IAuctionRes {
   isActive?: boolean;
   limitDate?: string;
   publishedData?: string;
-  sellerId?: string;
+  seller?: { name: string; id: string };
   status?: string;
+  imagesUrl?: string[];
+}
+
+export interface IFiltersParams {
+  ltDataLimit?: string;
+  gtDataLimit?: string;
+  ltPrice?: number;
+  gtPrice?: number;
+  type?: type;
+  typeVehicle?: typeVehicle;
+  ltYear?: number;
+  gtrYear?: number;
+  title?: string;
 }
 
 enum type {

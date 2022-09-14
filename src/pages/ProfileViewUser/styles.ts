@@ -14,6 +14,7 @@ export const ProfileMain = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 150px;
 `;
 
 export const TitleContainer = styled.h1`

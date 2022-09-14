@@ -41,7 +41,8 @@ export const ContainerAuction = styled.div`
   width: 100%;
   height: 326px;
 
-  background-image: url(${img_test});
+  background-image: ${({ image }: { image: string[] }) =>
+    image.length ? `url(${image[0]})` : `url(${img_test})`};
   background-size: cover;
 
   color: white;

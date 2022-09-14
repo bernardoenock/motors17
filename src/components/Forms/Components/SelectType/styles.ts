@@ -11,8 +11,10 @@ export const ToggleRoot = styled(ToggleGroup.Root)`
 export const ToggleItem = styled(ToggleGroup.Item)`
   height: 100%;
   width: 45%;
-  font-size: 12px;
+  font-style: normal;
   font-weight: 600;
+  font-size: 16px;
+  line-height: 0px;
 
   &[data-state="on"] {
     background-color: ${({ theme }) => theme.buttons.primary.background};
