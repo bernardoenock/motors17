@@ -53,26 +53,38 @@ export const ContainerTitle = styled.div`
 
 export const ContainerButtons = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 90%;
+  min-width: 300px;
+  max-width: 768px;
 
-  gap: 10px;
   button {
     align-items: center;
-    padding: 12px 28px;
-    width: 177.53px;
-    height: 48px;
-
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: 3rem;
     background: transparent;
-    /* color: #f8f9fa; */
   }
 
-  @media screen and (max-width: 990px) {
-    flex-direction: column;
-    gap: 20px;
+  @media screen and (max-width: 768px) {
+  }
+`;
 
-    width: 94vw;
-    button {
-      padding: 0;
-      width: 100%;
-    }
+export const ContainerButtonsTop = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 10px;
+
+  div {
+    width: 33%;
+  }
+`;
+
+export const ContainerButtonsBottom = styled.div`
+  width: 100%;
+
+  button {
+    width: 100%;
   }
 `;

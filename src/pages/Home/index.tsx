@@ -1,22 +1,23 @@
 import { useCallback, useEffect, useState } from "react";
-import ActivateUserSpan from "../../components/ActivateUser";
+import ActivateUserSpan from "../../containers/Modals/ActivateUser";
 import BannerHome from "../../components/Banners/BannerHome";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import Footer from "../../containers/Footer";
+import Header from "../../containers/Header/Index";
 import AuctionList from "../../components/Lists/AuctionList";
 import CarsList from "../../components/Lists/CarsList";
+import FilterLists from "../../components/Lists/FilterLists";
 import MotorcyclesList from "../../components/Lists/MotorcyclesList";
 import { IUser } from "../../interfaces/user";
-import { useUser } from "../../Providers/User/login";
+import { useFilters } from "../../Providers/Filters";
+import { useUser } from "../../Providers/User";
 
-import { Main, Page } from "./styles";
+import { ContainerLists, Main, Page } from "./styles";
 
 const Home: React.FC = () => {
   const { token, getUser } = useUser();
+  const { filtersActive } = useFilters();
 
   const [user, setUser] = useState<IUser>({});
-
-  console.log(user);
 
   const handleAuth = useCallback(async () => {
     const user = await getUser(token as string);
@@ -31,12 +32,19 @@ const Home: React.FC = () => {
     <Page>
       <Header />
       <Main>
-        {user.isActivate === false && <ActivateUserSpan />}
+        {user.id && !user.isActivate && <ActivateUserSpan />}
         <BannerHome />
-
-        <AuctionList />
-        <CarsList />
-        <MotorcyclesList />
+        <ContainerLists>
+          {filtersActive ? (
+            <FilterLists />
+          ) : (
+            <>
+              <AuctionList />
+              <CarsList />
+              <MotorcyclesList />
+            </>
+          )}
+        </ContainerLists>
       </Main>
       <Footer />
     </Page>

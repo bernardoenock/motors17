@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 500;
-        /* transition: all 0.5s ease; */
+        transition: all 0.5s ease;
 
   &::-webkit-scrollbar {
     display: none;
@@ -24,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     }
     h1, h2, h3, h4, h5, h6 {
         font-family: "Lexend", sans-serif;
+    }
+
+    .Toastify__toast-theme--light {
+        background-color: ${({ theme }) =>
+          theme.backgroundColors.headerBackground};
     }
 
 

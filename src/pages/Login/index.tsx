@@ -1,6 +1,6 @@
-import Footer from "../../components/Footer";
+import Footer from "../../containers/Footer";
 import FormSingIn from "../../components/Forms/SingInForm";
-import Header from "../../components/Header";
+import Header from "../../containers/Header/Index";
 import { Main, Page } from "./styles";
 
 const Login: React.FC = () => {

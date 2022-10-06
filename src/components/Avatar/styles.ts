@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const NameBol = styled.div`
+export const NameBol = styled.div<{ background: string }>`
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.brand.brand2};
+  background-color: ${({ background }) => background};
   width: 2rem;
   height: 2rem;
   display: flex;

@@ -13,3 +13,10 @@ export const Main = styled.main`
   align-items: center;
   flex-direction: column;
 `;
+
+export const ContainerLists = styled.div`
+  width: 100%;
+  @media screen and (min-width: 425px) {
+    padding: 1rem;
+  }
+`;

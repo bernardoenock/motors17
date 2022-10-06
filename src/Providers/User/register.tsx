@@ -2,11 +2,11 @@ import React, { createContext, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motorShopAPI } from "../../services/urls.api";
-import { IRegister } from "../../interfaces/user";
+import { IUserRegister } from "../../interfaces/user";
 import { useLoad } from "../Loading";
 
 interface IContext {
-  registerUser: (data: IRegister) => Promise<void>;
+  registerUser: (data: IUserRegister) => Promise<void>;
 }
 
 export const RegisterContext = createContext({} as IContext);
@@ -17,7 +17,7 @@ export const RegisterProvider: React.FC<{ children: React.ReactNode }> = ({
   const history = useHistory();
   const { hiddenLoad } = useLoad();
 
-  const registerUser = async (data: IRegister) => {
+  const registerUser = async (data: IUserRegister) => {
     const isSeller = data.typeAccount === "client" ? false : true;
 
     delete data.typeAccount;
@@ -30,10 +30,17 @@ export const RegisterProvider: React.FC<{ children: React.ReactNode }> = ({
         history.push("/login");
       })
       .catch((err) => {
-        console.log(err.response.data);
-        console.log(err.response.status);
-        console.log(err.response.headers);
-        toast.warning(err.response.data.message);
+        if (err.response.data.message) {
+          toast.warning(err.response.data.message);
+        }
+        if (err.response.data.errors.body) {
+          const errorsArr = err.response.data.errors.body;
+          errorsArr.forEach(
+            (error: { message: string; propertyPath: string }) => {
+              toast.warning(error.message);
+            }
+          );
+        }
       });
     hiddenLoad();
   };

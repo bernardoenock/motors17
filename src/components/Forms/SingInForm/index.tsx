@@ -1,8 +1,8 @@
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { Loginschema } from "../../../validations/user.validations";
 
-import { ButtonOutline2, ButtonPrimary } from "../../Button";
+import { ButtonOutline2, ButtonPrimary } from "../../Buttons";
 import GeneralInput from "../Components/Inputs/GeneralInput";
 import {
   Container,
@@ -14,26 +14,14 @@ import {
 import InputPassword from "../Components/Inputs/InputPassword";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import Modal from "../../Modals";
-import RecoveryPassword from "../../Modals/RecoveryPassword";
+import Modal from "../../../containers/Modals";
+import RecoveryPassword from "../../../containers/Modals/User/RecoveryPassword";
 
-import { useUser } from "../../../Providers/User/login";
+import { useUser } from "../../../Providers/User";
 import { useLoad } from "../../../Providers/Loading";
-
-interface ILogin {
-  email?: string;
-  password?: string;
-}
+import { ILogin } from "../../../interfaces/user";
 
 const FormSingIn: React.FC = () => {
-  const schema = yup.object().shape({
-    email: yup
-      .string()
-      .required("Email é obrigatório")
-      .email("Formato de email inválido"),
-    password: yup.string().required("Senha é obrigatória"),
-  });
-
   const { loginUser } = useUser();
 
   const {
@@ -41,7 +29,7 @@ const FormSingIn: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(Loginschema),
   });
 
   const { showLoad } = useLoad();

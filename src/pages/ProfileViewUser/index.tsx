@@ -1,29 +1,35 @@
-import UserInfoBox from "../../components/UserInfoBox";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import AuctionList from "../../components/Lists/AuctionList";
-import CarsList from "../../components/Lists/CarsList";
-import MotorcyclesList from "../../components/Lists/MotorcyclesList";
+import UserInfoBox from "../../components/Boxes/UserInfoBox";
+import Footer from "../../containers/Footer";
+import Header from "../../containers/Header/Index";
 
 import { ProfileViewUserContainer, ProfileMain } from "./styles";
-import { useUser } from "../../Providers/User/login";
+import { useUser } from "../../Providers/User";
 import { useCallback, useEffect, useState } from "react";
 import { IUser } from "../../interfaces/user";
-import UpdateProfile from "../../components/Modals/UpdateProfile";
-import CreateAd from "../../components/Modals/Ad/CreateAd";
-import Modal from "../../components/Modals";
+
+import UpdateProfile from "../../containers/Modals/User/UpdateProfile";
+import CreateAd from "../../containers/Modals/Ad/CreateAd";
+import Modal from "../../containers/Modals";
+
+import MyAnnouncesList from "../../components/Lists/MyAnnouncesList";
+import MyBidsList from "../../components/Lists/MyBidsList";
+import LoaderLocalComponent from "../../containers/Loader/LoaderLocalComponent";
+import { EmptyContainer } from "../AdDetails/styles";
 
 const ProfileViewUser: React.FC = (): JSX.Element => {
-  const { token, getUser } = useUser();
+  const { token, getUser, avatarColor } = useUser();
 
   const [user, setUser] = useState<IUser>({});
+  const [loadding, setLoadding] = useState(false);
 
   const handleAuth = useCallback(async () => {
     const user = await getUser(token as string);
     setUser(user!);
+    setLoadding(false);
   }, [getUser, token]);
 
   useEffect(() => {
+    setLoadding(true);
     handleAuth();
   }, [handleAuth]);
 
@@ -35,13 +41,12 @@ const ProfileViewUser: React.FC = (): JSX.Element => {
   };
 
   const handleModalCreateAd = () => {
-    setCreateAdModal(!editProfileModal);
+    setCreateAdModal(!createAdModal);
   };
-
   return (
     <>
       <Modal show={editProfileModal} close={handleModalProfile}>
-        <UpdateProfile handleModal={handleModalProfile} />
+        <UpdateProfile handleModal={handleModalProfile} user={user} />
       </Modal>
       <Modal show={createAdModal} close={handleModalCreateAd}>
         <CreateAd handleModal={handleModalCreateAd} />
@@ -49,18 +54,23 @@ const ProfileViewUser: React.FC = (): JSX.Element => {
 
       <ProfileViewUserContainer>
         <Header />
-        <ProfileMain>
-          <UserInfoBox
-            description={user.description as string}
-            userName={user.name as string}
-            typeUser={user.isSeller as boolean}
-            openProfileModal={() => setEditProfileModal(true)}
-            openAnounceModal={() => setCreateAdModal(true)}
-          />
-          <AuctionList />
-          <CarsList />
-          <MotorcyclesList />
-        </ProfileMain>
+        {loadding ? (
+          <EmptyContainer>
+            <LoaderLocalComponent />
+          </EmptyContainer>
+        ) : (
+          <ProfileMain>
+            <UserInfoBox
+              description={user.description as string}
+              userName={user.name as string}
+              typeUser={user.isSeller as boolean}
+              openProfileModal={handleModalProfile}
+              openAnounceModal={handleModalCreateAd}
+              color={avatarColor!}
+            />
+            {user.isSeller ? <MyAnnouncesList /> : <MyBidsList />}
+          </ProfileMain>
+        )}
         <Footer />
       </ProfileViewUserContainer>
     </>

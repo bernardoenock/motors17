@@ -29,7 +29,7 @@ Type Script
 - [Styled Components](https://styled-components.com/docs)
 - [React Overlays](https://react-bootstrap.github.io/react-overlays/)
 
-## Links Uteis
+## Links Uteis Para Estudo
 
 - [Color dark for theme](https://pinetools.com/darken-color)
 - [Live sobre Next](https://www.youtube.com/watch?v=2LS6rP3ykJk)

@@ -12,7 +12,7 @@ export const Container = styled.div`
 
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 6px;

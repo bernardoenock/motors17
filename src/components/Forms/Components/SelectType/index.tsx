@@ -60,7 +60,7 @@ export const SelectTypePublished: React.FC<IProps> = ({ value, setValue }) => {
   return (
     <ToggleRoot
       type="single"
-      defaultValue={"no"}
+      defaultValue={value}
       onValueChange={(value: string) => {
         if (value) {
           setValue(value);

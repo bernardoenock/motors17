@@ -48,7 +48,6 @@ export const SpanText = styled.span`
 
   color: ${({ theme }) => theme.textColors.primaryText};
 
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +67,7 @@ export const RequestPassword = styled.div`
     font-weight: 500;
     font-size: 14px;
 
-    color: ${({ theme }) => theme.textColors.spantext};
+    color: ${({ theme }) => theme.textColors.primaryText};
     cursor: pointer;
 
     &::after {
@@ -76,7 +75,7 @@ export const RequestPassword = styled.div`
       display: block;
       width: 0;
       height: 2px;
-      background: ${({ theme }) => theme.textColors.spantext};
+      background: ${({ theme }) => theme.textColors.primaryText};
       transition: width 0.8s;
     }
 

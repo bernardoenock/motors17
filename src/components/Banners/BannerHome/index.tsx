@@ -1,49 +1,64 @@
-import { useHistory } from "react-router-dom";
-
 import {
   ContainerBanner,
   ContainerButtons,
+  ContainerButtonsBottom,
+  ContainerButtonsTop,
   ContainerMain,
   ContainerTitle,
 } from "./styles";
 
-import { ButtonOutlineLight } from "../../Button";
+import { ButtonOutlineLight } from "../../Buttons";
+import Modal from "../../../containers/Modals";
+import Filters from "../../../containers/Modals/Filters";
+import { useState } from "react";
+import { useFilters } from "../../../Providers/Filters";
 
 const BannerHome: React.FC = () => {
-  const history = useHistory();
-  const handlePage = (path: string) => {
-    history.push(path);
-  };
+  const { filterBy } = useFilters();
+
+  const [modalFilters, setModalFilters] = useState(false);
 
   return (
-    <ContainerMain id="main">
-      <ContainerBanner>
-        <ContainerTitle>
-          <h1>Velocidade e experiência em um lugar feito para você</h1>
-          <p>Um ambiente feito para você explorar o seu melhor</p>
-        </ContainerTitle>
-        <ContainerButtons>
-          <ButtonOutlineLight
-            type="button"
-            onClick={() => handlePage("/preview")}
-          >
-            Leilão
-          </ButtonOutlineLight>
-          <ButtonOutlineLight
-            type="button"
-            onClick={() => handlePage("/preview")}
-          >
-            Carros
-          </ButtonOutlineLight>
-          <ButtonOutlineLight
-            type="button"
-            onClick={() => handlePage("/preview")}
-          >
-            Motos
-          </ButtonOutlineLight>
-        </ContainerButtons>
-      </ContainerBanner>
-    </ContainerMain>
+    <>
+      <Modal show={modalFilters} close={() => setModalFilters(false)}>
+        <Filters handleClose={() => setModalFilters(false)} />
+      </Modal>
+      <ContainerMain id="main">
+        <ContainerBanner>
+          <ContainerTitle>
+            <h1>Velocidade e experiência em um lugar feito para você</h1>
+            <p>Um ambiente feito para você explorar o seu melhor</p>
+          </ContainerTitle>
+          <ContainerButtons>
+            <ContainerButtonsTop>
+              <ButtonOutlineLight
+                type="button"
+                onClick={() => filterBy({ type: "auction" })}
+              >
+                Leilão
+              </ButtonOutlineLight>
+              <ButtonOutlineLight
+                type="button"
+                onClick={() => filterBy({ typeVehicle: "car" })}
+              >
+                Carros
+              </ButtonOutlineLight>
+              <ButtonOutlineLight
+                type="button"
+                onClick={() => filterBy({ typeVehicle: "motocycle" })}
+              >
+                Motos
+              </ButtonOutlineLight>
+            </ContainerButtonsTop>
+            <ContainerButtonsBottom>
+              <ButtonOutlineLight onClick={() => setModalFilters(true)}>
+                Filtrar
+              </ButtonOutlineLight>
+            </ContainerButtonsBottom>
+          </ContainerButtons>
+        </ContainerBanner>
+      </ContainerMain>
+    </>
   );
 };
 

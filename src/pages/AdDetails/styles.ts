@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { UserInfoBoxContainer } from "../../components/UserInfoBox/styles";
+import { UserInfoBoxContainer } from "../../components/Boxes/UserInfoBox/styles";
 
-export const AdDetailsContainer = styled.div`
-  background-image: linear-gradient(#4529e6 550px, 0, #f1f3f5 100%);
+export const Page = styled.div`
+  background-image: linear-gradient(
+    #4529e6 550px,
+    0,
+    ${({ theme }) => theme.backgroundColors.generalBackground} 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,12 +19,11 @@ export const AdDetailsContainer = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    background-image: linear-gradient(#4529e6 680px, 0, #f1f3f5 100%);
-  }
-  @media only screen and (min-width: 1279px) {
-    footer {
-      margin-top: 73px;
-    }
+    background-image: linear-gradient(
+      #4529e6 680px,
+      0,
+      ${({ theme }) => theme.backgroundColors.generalBackground} 100%
+    );
   }
 `;
 
@@ -28,95 +31,70 @@ export const AdDetailsMain = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  width: 90%;
+`;
 
-  @media only screen and (min-width: 1279px) {
-    flex-direction: row;
+export const TopContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 150px;
+
+  @media only screen and (max-width: 1279px) {
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 20px;
-  }
-  @media only screen and (min-width: 1440px) {
-    column-gap: 55px;
-  }
-  @media only screen and (min-width: 1900px) {
-    column-gap: 130px;
-    width: 70%;
+
+    > div {
+      width: 100%;
+    }
   }
 `;
 
-export const LeftContainerAdDetailsFirst = styled.div`
-  width: 90%;
+export const LeftContainer = styled.div`
+  width: 45%;
   display: flex;
   flex-direction: column;
-  margin: 120px 0 17px 0;
-
-  @media only screen and (min-width: 990px) {
-    margin-top: 135px;
-  }
-  @media only screen and (min-width: 1279px) {
-    width: auto;
-  }
+  gap: 0.5rem;
 `;
 
-export const RightContainerAdDetails = styled.div`
+export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin-bottom: 25px;
-  row-gap: 52px;
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-  }
-  @media only screen and (min-width: 1024px) {
-    column-gap: 25px;
-  }
-  @media only screen and (min-width: 1279px) {
-    flex-direction: column;
-    width: 440px;
-    margin: 106px 0 0 0;
-    row-gap: 34px;
-  }
+  gap: 0.5rem;
+  width: 45%;
 `;
 
-export const ImageGalleryContainer = styled.div`
+export const BottomContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
   width: 100%;
-  border-radius: 4px;
-  padding: 36px 24px 28px 24px;
-  background-color: ${({ theme }) => theme.greyScale.grey10};
-  box-shadow: 0 4px 32px -22px #00000062;
-  h1 {
-    margin-bottom: 22px;
-  }
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 8px;
-  }
 
-  @media only screen and (min-width: 768px) {
-    margin: 0 15px 0 0;
-    flex: 1 1 auto;
-  }
-  @media only screen and (min-width: 1279px) {
-    max-width: 440px;
-    height: 359px;
+  @media only screen and (max-width: 1279px) {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    > div {
+      width: 100%;
+    }
   }
 `;
 
-export const UserInfoBoxWithButtonContainer = styled(UserInfoBoxContainer)`
+export const SellerBoxInfo = styled(UserInfoBoxContainer)`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 28px;
   box-shadow: 0 4px 32px -22px #00000062;
+  background-color: ${({ theme }) => theme.backgroundColors.headerBackground};
+
   div {
     margin: 0;
   }
@@ -128,44 +106,23 @@ export const UserInfoBoxWithButtonContainer = styled(UserInfoBoxContainer)`
   }
 `;
 
-export const LeftContainerAdDetailsTSecond = styled.div`
-  width: 90%;
+export const Title = styled.h2`
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: ${({ theme }) => theme.textColors.primaryText};
+`;
+
+export const EmptyContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: ${({ theme }) => theme.backgroundColors.generalBackground};
 
-  @media only screen and (min-width: 1279px) {
-    width: auto;
-  }
-`;
-
-export const CommentBoxContainer = styled.div`
-  width: 100%;
-  padding-top: 36px;
-  margin-bottom: 42px;
-  background-color: ${({ theme }) => theme.greyScale.grey10};
-  border-radius: 4px;
-  box-shadow: 0 4px 32px -22px #00000062;
-  h1 {
-    padding-left: 28px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    h1 {
-      padding-left: 44px;
-    }
-  }
-  @media only screen and (min-width: 1279px) {
-    max-width: 752px;
-    margin-bottom: 33px;
-  }
-`;
-
-export const FakeContainer = styled.div`
-  width: 440px;
-  height: 440px;
-  display: none;
-
-  @media only screen and (min-width: 1279px) {
-    display: flex;
+  h2 {
+    font-size: 30px;
   }
 `;
