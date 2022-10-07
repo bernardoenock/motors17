@@ -70,12 +70,15 @@ export const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* max-width: 95%; */
+  /* min-width: 10%; */
   width: 95%;
+  height: 80%;
 
   background: transparent;
   > img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 4px;
   }
   border-radius: 4px;
