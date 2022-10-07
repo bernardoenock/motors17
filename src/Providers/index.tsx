@@ -14,6 +14,7 @@ import { DeleteUpdateAddressProvider } from "./Address/deleteUpdateAddress";
 import { FiltersProviders } from "./Filters";
 import { PurchasesProvider } from "./Purchases";
 import { DeleteAdProvider } from "./Announces/delete";
+import { UpdateAnnounceProvider } from "./Announces/update";
 
 const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -23,23 +24,25 @@ const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <PasswordUserProvider>
             <ActivateProvider>
               <RegisterAnnounceProvider>
-                <ListAnounceProvider>
-                  <DeleteAdProvider>
-                    <BidsProvider>
-                      <PurchasesProvider>
-                        <ListCreateAddressProvider>
-                          <DeleteUpdateAddressProvider>
-                            <CommentProvider>
-                              <FiltersProviders>
-                                <ZipCodeProvider>{children}</ZipCodeProvider>
-                              </FiltersProviders>
-                            </CommentProvider>
-                          </DeleteUpdateAddressProvider>
-                        </ListCreateAddressProvider>
-                      </PurchasesProvider>
-                    </BidsProvider>
-                  </DeleteAdProvider>
-                </ListAnounceProvider>
+                <UpdateAnnounceProvider>
+                  <ListAnounceProvider>
+                    <DeleteAdProvider>
+                      <BidsProvider>
+                        <PurchasesProvider>
+                          <ListCreateAddressProvider>
+                            <DeleteUpdateAddressProvider>
+                              <CommentProvider>
+                                <FiltersProviders>
+                                  <ZipCodeProvider>{children}</ZipCodeProvider>
+                                </FiltersProviders>
+                              </CommentProvider>
+                            </DeleteUpdateAddressProvider>
+                          </ListCreateAddressProvider>
+                        </PurchasesProvider>
+                      </BidsProvider>
+                    </DeleteAdProvider>
+                  </ListAnounceProvider>
+                </UpdateAnnounceProvider>
               </RegisterAnnounceProvider>
             </ActivateProvider>
           </PasswordUserProvider>

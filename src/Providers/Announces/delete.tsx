@@ -3,6 +3,7 @@ import { motorShopAPI } from "../../services/urls.api";
 import { useLoad } from "../Loading";
 import { useUser } from "../User";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 interface IContext {
   setDeleteAd: (id: string) => Promise<void>;
@@ -15,6 +16,8 @@ export const DeleteAdProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const { token } = useUser();
 
+  const history = useHistory();
+
   const { hiddenLoad } = useLoad();
 
   const setDeleteAd = async (id: string) => {
@@ -23,8 +26,9 @@ export const DeleteAdProvider: React.FC<{ children: React.ReactNode }> = ({
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         toast.success("Anuncio deletado com sucesso!");
+        history.push("/profile");
       })
       .catch((err) => {
         console.log(err);

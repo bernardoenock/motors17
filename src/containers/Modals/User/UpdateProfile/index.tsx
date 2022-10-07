@@ -99,7 +99,7 @@ const UpdateProfile: React.FC<IProps> = ({ handleModal, user }) => {
               register={register}
               name={"birhtDate"}
               error={errors.birhtDate?.message}
-              placeholder="Editar data de nascimento"
+              defaultValue={user.birhtDate}
             />
             <S.Space />
             <TextArea

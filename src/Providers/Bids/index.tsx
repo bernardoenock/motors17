@@ -4,7 +4,7 @@ import { motorShopAPI } from "../../services/urls.api";
 import { useUser } from "../User";
 import { toast } from "react-toastify";
 import { useLoad } from "../Loading";
-import { IPurshaceAnnounceRes } from "../../interfaces/purshase";
+import { IPurshaceAnnounceRes } from "../../interfaces/purchases";
 
 interface IContext {
   getBidsAnnounce: (id: string) => Promise<IResBids[]>;

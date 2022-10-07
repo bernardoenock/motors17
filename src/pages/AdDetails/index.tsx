@@ -33,7 +33,7 @@ import GaleryImages from "../../constants/GaleryImages";
 import EmptyMessage from "../../constants/EmptyMessage";
 import AnnounceBids from "../../components/Lists/AnnounceBids";
 import LoaderLocalComponent from "../../containers/Loader/LoaderLocalComponent";
-import WinnerCard from "../../components/WinnerCard";
+import WinnerCard from "../../components/Cards/WinnerCard";
 
 const AdDetails: React.FC = (): JSX.Element => {
   const query = useQuery();
@@ -58,7 +58,7 @@ const AdDetails: React.FC = (): JSX.Element => {
   const handleSellerPage = () => {
     history.push(`/seller?seller_id=${announce.seller!.id}`);
   };
-  console.log(announce);
+  // console.log(announce);
   return (
     <Page>
       <Header />

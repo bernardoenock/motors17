@@ -35,7 +35,9 @@ const FormSingUp: React.FC = () => {
   const autoComplete = useCallback(
     async (value: string) => {
       const verify = await verifyZipCode(value);
-      setZipCodeAddress(verify);
+      if (verify) {
+        setZipCodeAddress(verify);
+      }
     },
     [verifyZipCode]
   );
@@ -115,7 +117,7 @@ const FormSingUp: React.FC = () => {
           name={"state"}
           error={errors.state?.message}
           placeholder="Estado..."
-          defaultValue={zipCodeAddress.uf}
+          defaultValue={zipCodeAddress.uf!}
         />
         <GeneralInput
           label="Cidade"
@@ -123,7 +125,7 @@ const FormSingUp: React.FC = () => {
           name={"city"}
           error={errors.city?.message}
           placeholder="Cidade..."
-          defaultValue={zipCodeAddress.localidade}
+          defaultValue={zipCodeAddress.localidade!}
         />
         <GeneralInput
           label="Rua"
@@ -131,7 +133,7 @@ const FormSingUp: React.FC = () => {
           name={"street"}
           error={errors.street?.message}
           placeholder="Rua..."
-          defaultValue={zipCodeAddress.logradouro}
+          defaultValue={zipCodeAddress.logradouro!}
         />
         <GeneralInput
           label="Número"
@@ -147,7 +149,7 @@ const FormSingUp: React.FC = () => {
           name={"complement"}
           error={errors.complement?.message}
           placeholder="Complemento..."
-          defaultValue={zipCodeAddress.complemento}
+          defaultValue={zipCodeAddress.complemento!}
         />
         <SpanText>Tipo de conta</SpanText>
         <SelectTypeAccount value={typeAccount} setValue={setTypeAccount} />

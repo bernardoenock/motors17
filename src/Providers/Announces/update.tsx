@@ -1,5 +1,4 @@
 import React, { createContext, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { motorShopAPI } from "../../services/urls.api";
@@ -8,25 +7,31 @@ import { IRegisterAnnounce } from "../../interfaces/auction";
 import { useLoad } from "../Loading";
 
 type IAuctionTypeContext = {
-  registerAnnounce: (data: IRegisterAnnounce, images?: File[]) => Promise<void>;
+  updateAnnounce: (
+    id: string,
+    data: IRegisterAnnounce,
+    images?: File[]
+  ) => Promise<void>;
 };
 
 const initialValue = {
   auction: {},
-  registerAnnounce: async () => {},
+  updateAnnounce: async () => {},
 };
 
-export const RegisterAnnounceContext =
+export const UpdateAnnounceContext =
   createContext<IAuctionTypeContext>(initialValue);
 
-export const RegisterAnnounceProvider: React.FC<{
+export const UpdateAnnounceProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const history = useHistory();
-
   const { hiddenLoad } = useLoad();
 
-  const registerAnnounce = async (data: IRegisterAnnounce, images?: File[]) => {
+  const updateAnnounce = async (
+    id: string,
+    data: IRegisterAnnounce,
+    images?: File[]
+  ) => {
     const token = localStorage.getItem("@token:Motor");
 
     const formData = new FormData();
@@ -36,15 +41,14 @@ export const RegisterAnnounceProvider: React.FC<{
     }
 
     await motorShopAPI
-      .post("/announcement/", formData, {
+      .patch(`/announcement/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
-        toast.success("Anúncio criado com sucesso!");
-        history.push("/");
+        toast.success("Anúncio editado com sucesso!");
       })
       .catch((err) => {
         if (err.response.data.message) {
@@ -63,10 +67,10 @@ export const RegisterAnnounceProvider: React.FC<{
   };
 
   return (
-    <RegisterAnnounceContext.Provider value={{ registerAnnounce }}>
+    <UpdateAnnounceContext.Provider value={{ updateAnnounce }}>
       {children}
-    </RegisterAnnounceContext.Provider>
+    </UpdateAnnounceContext.Provider>
   );
 };
 
-export const useAnnounceRegister = () => useContext(RegisterAnnounceContext);
+export const useAnnounceUpdate = () => useContext(UpdateAnnounceContext);

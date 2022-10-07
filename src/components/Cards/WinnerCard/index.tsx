@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { IPurshaceAnnounceRes } from "../../interfaces/purshase";
-import { useBids } from "../../Providers/Bids";
-import Avatar from "../Avatar";
+import { IPurshaceAnnounceRes } from "../../../interfaces/purchases";
+import { useBids } from "../../../Providers/Bids";
+import Avatar from "../../Avatar";
 import { Card, DateSpan, Main, Price, Title, TopContainer } from "./styles";
 import moment from "moment";
 
