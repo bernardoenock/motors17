@@ -1,8 +1,9 @@
-<p align="center"><a href="https://motors17.vercel.app/" target="_blank"><img src="https://github.com/bernardoenock/motors17/blob/main/public/android-chrome-256x256.png?raw=true" width="400" alt="Logo Motorshop"></a></p>
+<p align="center"><a href="https://motors17.vercel.app/" target="_blank"><img src="https://github.com/bernardoenock/motors17/blob/main/public/android-chrome-256x256.png?raw=true" width="300" alt="Logo Motorshop"></a></p>
 
 # Projeto Full Stack (Leilão)
 
 Este projeto foi feito na finalização do curso de desenvolvimento web full stack da Kenzie Academy.
+- [Deploy](https://motors17.vercel.app/)
 
 ## Contents
 
@@ -26,7 +27,7 @@ Este projeto foi feito na finalização do curso de desenvolvimento web full sta
 
 ## Sobre
 
-O Projeto consiste num leilão de veiculos, onde você pode dar lances nos leilões e cria-los também. Podendo usar como um e-commerce podendo tambem vender veiculos.
+O Projeto consiste num leilão de veículos, onde você pode dar lances nos leilões e cria-los também. Podendo usar como um e-commerce para vender veículos.
 
 Foi dado a nos um figma do projeto, com a parte visual da aplicação e fomos orientados pelo Pedro Hustler.
 
@@ -50,15 +51,14 @@ Tivemos 30 dias para concluir o MVP do projeto. Foi entregue no prazo.
 ### Back-End
 
 - Prisma
-- TS
-- Aws
+- TypeScript
+- S3 AWS
 - BcryptJs
-- Cors
+- NodeMailer
 - JWT
-- uuid
-- Axios
 - Ejs
 - Express
+- PostgreSQL
 
 ## Testar
 
