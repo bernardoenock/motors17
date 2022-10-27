@@ -20,7 +20,7 @@ Este projeto foi feito na finalização do curso de desenvolvimento web full sta
 
 ## Equipe
 
-- [Bernardo Enock](https://www.linkedin.com/in/bernardoenock/) (Tech-Leader)
+- [Bernardo Enock](https://www.linkedin.com/in/bernardoenock/) (Tech-Lead)
 - [Leonardo Marchioro](https://www.linkedin.com/in/leonardo-marchioro/) (Dev-Full-Stack)
 - [Renan Ribeiro](https://www.linkedin.com/in/renandcr/) (Dev-Front-End)
 - [Pedro Hustler](https://www.linkedin.com/in/pedrofhasler/) (PO-Orientador)
