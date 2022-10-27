@@ -15,6 +15,13 @@ export const ContainerFooter = styled.footer`
     font-weight: 400;
     font-size: 14px;
     text-align: center;
+    > a {
+      text-decoration: none;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: ${({ theme }) => theme.greyScale.whiteFixed};
+    }
   }
 
   > button {

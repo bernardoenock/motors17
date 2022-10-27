@@ -13,7 +13,14 @@ const Footer: React.FC = () => {
   return (
     <ContainerFooter>
       <img src={MotorShop} alt="Logo" />
-      <span>© 2022 - Todos os direitos reservados. angle-up</span>
+      <span>
+        © 2022 - Todos os direitos reservados.{" "}
+        <a href="https://www.linkedin.com/in/bernardoenock/">Bernardo Enock</a>,{" "}
+        <a href="https://www.linkedin.com/in/leonardo-marchioro/">
+          Leonardo Marchioro
+        </a>{" "}
+        e <a href="https://www.linkedin.com/in/renandcr/">Renan Ribeiro</a>.
+      </span>
       <button onClick={scrollToTop}>
         <RiArrowUpSLine size={30} />
       </button>
