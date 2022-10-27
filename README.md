@@ -1,4 +1,4 @@
-<p align="center"><a href="https://motors17.vercel.app/" target="_blank"><img src="https://github.com/bernardoenock/motors17/blob/main/public/android-chrome-256x256.png?raw=true" width="400" alt="Logo Motorshop"></a></p>
+<p align="center"><a href="https://motors17.vercel.app/" target="_blank"><img src="https://github.com/bernardoenock/motors17/blob/main/public/android-chrome-256x256.png?raw=true" width="300" alt="Logo Motorshop"></a></p>
 
 # Projeto Full Stack (Leilão)
 
