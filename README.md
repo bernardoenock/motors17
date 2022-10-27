@@ -51,15 +51,14 @@ Tivemos 30 dias para concluir o MVP do projeto. Foi entregue no prazo.
 ### Back-End
 
 - Prisma
-- TS
-- Aws
+- TypeScript
+- S3 AWS
 - BcryptJs
-- Cors
+- NodeMailer
 - JWT
-- uuid
-- Axios
 - Ejs
 - Express
+- PostgreSQL
 
 ## Testar
 
