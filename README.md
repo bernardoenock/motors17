@@ -27,7 +27,7 @@ Este projeto foi feito na finalização do curso de desenvolvimento web full sta
 
 ## Sobre
 
-O Projeto consiste num leilão de veiculos, onde você pode dar lances nos leilões e cria-los também. Podendo usar como um e-commerce podendo tambem vender veiculos.
+O Projeto consiste num leilão de veículos, onde você pode dar lances nos leilões e cria-los também. Podendo usar como um e-commerce para vender veículos.
 
 Foi dado a nos um figma do projeto, com a parte visual da aplicação e fomos orientados pelo Pedro Hustler.
 
