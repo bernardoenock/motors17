@@ -1,42 +1,74 @@
-# Organização do projeto
+<p align="center"><a href="https://motors17.vercel.app/" target="_blank"><img src="https://github.com/bernardoenock/motors17/blob/main/public/android-chrome-256x256.png?raw=true" width="400" alt="Logo Motorshop"></a></p>
 
-## Padrões GIT
+# Projeto Full Stack (Leilão)
 
-- feature-nome
-- coventional commits (feat: - fix: - docs: - test:)
+Este projeto foi feito na finalização do curso de desenvolvimento web full stack da Kenzie Academy.
 
-## Fase Front End
+## Contents
 
-[Figma](https://www.figma.com/file/gEUjTK4ozBPNbJnqI8qZPH/M6---E-Commerce?node-id=45%3A2)
+- [Projeto Full Stack (Leilão)](#projeto-full-stack-leilão)
+  - [Contents](#contents)
+  - [Equipe](#equipe)
+  - [Sobre](#sobre)
+  - [Prazo de Entrega](#prazo-de-entrega)
+  - [Tecnologias](#tecnologias)
+    - [Front-End](#front-end)
+    - [Back-End](#back-end)
+  - [Testar](#testar)
+  - [Video](#video)
 
-## Fase Back End
+## Equipe
 
-DR
+- [Bernardo Enock](https://www.linkedin.com/in/bernardoenock/) (Tech-Leader)
+- [Leonardo Marchioro](https://www.linkedin.com/in/leonardo-marchioro/) (Dev-Full-Stack)
+- [Renan Ribeiro](https://www.linkedin.com/in/renandcr/) (Dev-Front-End)
+- [Pedro Hustler](https://www.linkedin.com/in/pedrofhasler/) (PO-Orientador)
 
-## Linguagem
+## Sobre
 
-Type Script
+O Projeto consiste num leilão de veiculos, onde você pode dar lances nos leilões e cria-los também. Podendo usar como um e-commerce podendo tambem vender veiculos.
 
-## Frameworks
+Foi dado a nos um figma do projeto, com a parte visual da aplicação e fomos orientados pelo Pedro Hustler.
 
-- [TypeScripy](https://www.typescriptlang.org/)
-- [Node](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [Prisma](https://www.prisma.io/)
+Tivemos que pensar em como seria o banco de dados e quais tecnologias iriamos usar.
 
-# Libs
+## Prazo de Entrega
 
-- [Styled Components](https://styled-components.com/docs)
-- [React Overlays](https://react-bootstrap.github.io/react-overlays/)
+Tivemos 30 dias para concluir o MVP do projeto. Foi entregue no prazo.
 
-## Links Uteis Para Estudo
+## Tecnologias
 
-- [Color dark for theme](https://pinetools.com/darken-color)
-- [Live sobre Next](https://www.youtube.com/watch?v=2LS6rP3ykJk)
+### Front-End
 
-- [Autenticação Google](https://demos-kenzie-academy-brasil.s3.amazonaws.com/nov21/m4/Sprint_7/GMT20220713-180329_Recording_1920x1080.mp4)
-- [Manipulação com Mutter](https://demos-kenzie-academy-brasil.s3.amazonaws.com/nov21/m4/Sprint_7/video1955801357.mp4)
-- [Documentação PostMan](https://demos-kenzie-academy-brasil.s3.amazonaws.com/nov21/m4/Sprint_7/GMT20220712-180838_Recording_1920x1080.mp4)
-- [NODEMAILER](https://demos-kenzie-academy-brasil.s3.amazonaws.com/nov21/m4/Sprint_7/GMT20220714-123407_Recording_1920x1080.mp4)
+- React JS com TS
+- Radix-ui
+- Axios
+- Hook-Form
+- Yup
+- Styled-components
 
-- [Notion Redux](https://peach-pigment-2e6.notion.site/Redux-a9cc1ca8d53e44c6b2a29de722c4e070)
+### Back-End
+
+- Prisma
+- TS
+- Aws
+- BcryptJs
+- Cors
+- JWT
+- uuid
+- Axios
+- Ejs
+- Express
+
+## Testar
+
+- Clone o repositorio com os metodos: (https, ssh, gh cli);
+
+- Na pasta do projeto digite: `yarn` no terminal;
+- Em seguida `yarn start`.
+
+## Video
+
+Tem um video apresentando o projeto e fazendo o caminho do cliente:
+
+- Ir para o video.

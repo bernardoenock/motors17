@@ -70,8 +70,6 @@ export const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* max-width: 95%; */
-  /* min-width: 10%; */
   width: 95%;
   height: 80%;
 
